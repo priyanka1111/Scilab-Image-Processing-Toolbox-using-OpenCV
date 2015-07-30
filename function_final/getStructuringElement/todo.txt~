@@ -1,0 +1,8 @@
+a=getStructuringElement("MORPH_RECT",7,7,-1,-1 );
+
+1)a is 2D matrix which is returned by getStructuringElement
+2)first argument shape
+3)second argument size x
+4)third argument size y
+5)fourth argument point x
+6)fifth argument point y

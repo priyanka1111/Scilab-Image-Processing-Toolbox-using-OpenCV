@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab"   xml:id="getStructuringElement" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>getStructuringElement</refname>
+
+		<refpurpose>Returns a structuring element of the specified size and shape for morphological operations.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>Mat_return=getStructuringElement(String shape,int size.x,int size.y,int anchor.x,int anchor.y); </synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+
+		<title>Parameters</title>
+
+		<variablelist>                                                                            
+			<varlistentry><term>Mat_return:</term>
+				<listitem><para>The function constructs and returns the structuring element </para></listitem></varlistentry>      
+                        <varlistentry><term>shape:</term>        
+				<listitem><para>this argument should be string of following types inside double quotes &#10; Element shape that could be one of the following: &#10; MORPH_RECT - a rectangular structuring element &#10; MORPH_ELLIPSE - an elliptic structuring element, that is, a filled ellipse inscribed into the rectangle Rect(0, 0, esize.width, 0.esize.height) &#10; MORPH_CROSS - a cross-shaped structuring element &#10; CV_SHAPE_CUSTOM - custom structuring element (OpenCV 1.x API)</para></listitem></varlistentry>  
+                        <varlistentry><term>size.x:</term>        
+				<listitem><para>x coordinate of size of the structuring element.</para></listitem></varlistentry>  
+                        <varlistentry><term>size.y:</term>        
+				<listitem><para>y coordinate of size of the structuring element .</para></listitem></varlistentry>  
+                   <varlistentry><term>anchor.x:</term>
+				<listitem><para>Anchor position within the element. The default value (-1, -1) means that the anchor is at the center. Note that only the shape of a cross-shaped element depends on the anchor position. In other cases the anchor just regulates how much the result of the morphological operation is shifted.anchor.x is x coordinate of anchor</para></listitem></varlistentry>  
+<varlistentry><term>anchor.y:</term>
+				<listitem><para>anchor.y is y coordinate of anchor</para></listitem></varlistentry>       
+                        
+                                                                 
+		</variablelist>
+
+	</refsection>
+
+
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Returns a structuring element of the specified size and shape for morphological operations.</para>
+	
+		<para>The function constructs and returns the structuring element that can be further passed to createMorphologyFilter(), erode(), dilate() or morphologyEx() . But you can also construct an arbitrary binary mask yourself and use it as the structuring element.</para>
+
+		
+		
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+                <programlisting role="example">a=getStructuringElement("MORPH_RECT",7,7,-1,-1 );</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Priyanka Hiranandani</member>
+		</simplelist>
+	</refsection>
+</refentry>
+

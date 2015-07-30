@@ -1,0 +1,6 @@
+1)b=adaptivebilateralfilter(a,7,7,2,-1, -1)
+
+a is source image
+7,7 is size
+2 is double sigmaSpace
+-1,-1 is points 

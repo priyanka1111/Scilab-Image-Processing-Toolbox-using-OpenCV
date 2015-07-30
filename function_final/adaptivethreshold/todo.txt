@@ -1,0 +1,8 @@
+//The function transforms a grayscale image to a binary image according to the formulae:
+1)c=adaptivethreshold(b,2,"ADAPTIVE_THRESH_MEAN_C","THRESH_BINARY",3, 2);
+b is gray scale image //this function is 
+2 is double maxValue,
+ADAPTIVE_THRESH_MEAN_C is  int adaptiveMethod 
+THRESH_BINARY is int thresholdType
+3 is int blockSize
+2 is  double C

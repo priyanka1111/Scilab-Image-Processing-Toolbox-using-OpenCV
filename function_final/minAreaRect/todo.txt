@@ -1,0 +1,9 @@
+1)[a,b,c,e,r]=minAreaRect(d);
+
+d is the array points
+
+a is x coordinate of size
+b is y coordinate of size
+c is x coordinate of center
+e is y coordinate of center
+r is angle

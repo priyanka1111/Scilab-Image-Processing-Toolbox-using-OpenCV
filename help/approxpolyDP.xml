@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab"   xml:id="approxpolyDP" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>approxpolyDP</refname>
+
+		<refpurpose>Approximates a polygonal curve(s) with the specified precision.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>output_curve=approxpolyDP(InputArray input_curve,double epsilon, bool closed)</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+
+		<title>Parameters</title>
+
+		<variablelist>                                                                            
+			    
+                        <varlistentry><term>input_curve:</term>        
+				<listitem><para>matrix containing x and y coordinates of all points.</para></listitem></varlistentry>
+                        <varlistentry><term>epsilon:</term>
+				<listitem><para> Parameter specifying the approximation accuracy. This is the maximum distance between the original curve and its approximation.</para></listitem></varlistentry>    
+                        <varlistentry><term>closed:</term>        
+				<listitem><para>If true, the approximated curve is closed (its first and last vertices are connected). Otherwise, it is not closed.</para></listitem></varlistentry>          
+                        <varlistentry><term>output_curve:</term>        
+				<listitem><para>matrix containing x and y coordinates of all points returned by function.</para></listitem></varlistentry>             
+                      
+		</variablelist>
+	</refsection>
+
+
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Approximates a polygonal curve(s) with the specified precision.</para>
+	
+		<para>The functions approxPolyDP approximate a curve or a polygon with another curve/polygon with less vertices so that the distance between them is less or equal to the specified precision. It uses the Douglas-Peucker algorithm .</para>
+
+	        <para>Input image of this functions is expected to be matrix containing all x and y coordinate of points.Output of function is matrix of all points of curve returned by function.</para>
+		
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+                <programlisting role="example">b=approxpolyDP(a,2,"True");</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Priyanka Hiranandani</member>
+		</simplelist>
+	</refsection>
+</refentry>
+
