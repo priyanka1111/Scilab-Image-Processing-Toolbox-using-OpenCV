@@ -1,8 +1,0 @@
-g=pyrMeanShiftFiltering(a, 2, 3 );
-
-g is the destination matrix
-
-a is source image
-
-2 is double sp
-3 is  double sr

@@ -1,4 +1,0 @@
-1)b=bilateralfilter(a,-2, 12, 2 )
-b destination matrix
-a source matrix
-d,sigmacolor,sigmaspace

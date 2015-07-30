@@ -1,7 +1,0 @@
-1)c=boxfilter(a,0,7,7,-1,-1,"True");
-
-c is destination matrix
-0 is ddepth
-7,7 is size
--1,-1 is point
-true is boolean operator

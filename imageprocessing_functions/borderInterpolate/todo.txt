@@ -1,1 +1,0 @@
-int borderInterpolate(int p, int len, int borderType)
