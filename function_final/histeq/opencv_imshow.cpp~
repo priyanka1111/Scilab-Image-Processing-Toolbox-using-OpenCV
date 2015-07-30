@@ -1,0 +1,149 @@
+#include <numeric>
+#include "opencv2/core/core.hpp"
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/opencv.hpp"
+#include <iostream>
+//#include "WrapperMacros.h"
+using namespace cv;
+using namespace std;
+extern "C"
+{
+#include "api_scilab.h"
+#include "Scierror.h"
+#include "BOOL.h"
+#include <localization.h>
+#include<string.h>
+//#include "stack-c.h"
+int opencv_imshow(char *fname, unsigned long fname_len)
+{
+
+ // Error management variable
+        SciErr sciErr;
+    //variable info
+	int iRows		= 0;
+	int iCols		= 0;
+        int piRows		= 0;
+	int piCols		= 0;
+	int* piAddr1		= NULL;
+        int* piAddr2            = NULL;
+	int* piLen		= NULL;
+	char** pstData	= NULL;
+        int * pstData2	= NULL;
+        int* piAddr3 =NULL;
+        int* piAddr4 =NULL;
+        double *rrows;
+        double *rcols;
+//checking input argument
+         CheckInputArgument(pvApiCtx, 4, 4);
+ //      CheckOutputArgument(pvApiCtx, 1, 1) 
+//fetching name of window from first argument
+         sciErr = getVarAddressFromPosition(pvApiCtx, 1, &piAddr1);
+
+   if (sciErr.iErr)
+        {
+        printError(&sciErr, 0);
+        return 0;
+        }
+
+//fisrt call to retrieve dimensions
+        //SciErr getMatrixOfString(void* _pvCtx, int* _piAddress, int* _piRows, int* _piCols, int* _piLength, char** _pstStrings)  
+
+	sciErr = getMatrixOfString(pvApiCtx, piAddr1, &iRows, &iCols, NULL, NULL);
+	if(sciErr.iErr)
+	{
+		printError(&sciErr, 0);
+		return 0;
+	}
+
+	piLen = (int*)malloc(sizeof(int) * iRows * iCols);
+	//second call to retrieve length of each string
+	sciErr = getMatrixOfString(pvApiCtx, piAddr1, &iRows, &iCols, piLen, NULL);
+	if(sciErr.iErr)
+	{
+		printError(&sciErr, 0);
+		return 0;
+	}
+
+	pstData = (char**)malloc(sizeof(char*) * iRows * iCols);
+	for(int i = 0 ; i < iRows * iCols ; i++)
+	{
+		pstData[i] = (char*)malloc(sizeof(char) * (piLen[i] + 1));//+ 1 for null termination
+	}
+	
+	sciErr = getMatrixOfString(pvApiCtx, piAddr1, &iRows, &iCols, piLen, pstData);
+	if(sciErr.iErr)
+	{
+		printError(&sciErr, 0);
+		return 0;
+	}
+        
+        //for second argument
+         sciErr = getVarAddressFromPosition(pvApiCtx,2,&piAddr2);
+         if (sciErr.iErr)
+        {
+        printError(&sciErr, 0);
+        return 0;
+        }
+        sciErr = getMatrixOfDouble(pvApiCtx, piAddr2, &iRows, &iCols ,&rrows);
+        if(sciErr.iErr)
+	{
+		printError(&sciErr, 0);
+		return 0;
+	}   
+        //for third argument
+         sciErr = getVarAddressFromPosition(pvApiCtx,3,&piAddr3);
+        if (sciErr.iErr)
+        {
+        printError(&sciErr, 0);
+        return 0;
+        }
+        sciErr = getMatrixOfDouble(pvApiCtx, piAddr3, &iRows, &iCols ,&rcols);
+        if(sciErr.iErr)
+	{
+		printError(&sciErr, 0);
+		return 0;
+	}   
+        //for fourth argument
+        sciErr = getVarAddressFromPosition(pvApiCtx,4,&piAddr4);
+        if (sciErr.iErr)
+        {
+        printError(&sciErr, 0);
+        return 0;
+        }
+        sciErr = getMatrixOfInteger32(pvApiCtx, piAddr4, &piRows, &piCols,&pstData2);
+	if(sciErr.iErr)
+	{
+		printError(&sciErr, 0);
+		return 0;
+	}  
+        if(piRows*piCols==3*rrows[0]*rcols[0])     //if and else is for showing coloured and grayscale image
+        {  
+        Mat img(rrows[0],rcols[0],CV_8UC3);    //for coloured image 
+        int k=0;
+        for(int i = 0;i < rrows[0];i++){
+        for(int j = 0;j < rcols[0];j++){
+        img.at<cv::Vec3b>(i,j)[2]= pstData2[k];k++; 
+        img.at<cv::Vec3b>(i,j)[1]= pstData2[k];k++;
+        img.at<cv::Vec3b>(i,j)[0]= pstData2[k];k++;  
+                                       }
+                                       }
+        imshow(pstData[0], img); //display the image which is stored in the 'img' in the "MyWindow" window         
+        waitKey(0); //wait infinite time for a keypress
+        }
+        else if(piRows*piCols==rrows[0]*rcols[0])
+        {
+         int k=0;
+         cv::Mat img1(rrows[0],rcols[0], CV_8UC1); //gray
+         for(int i = 0;i < rrows[0];i++){
+         for(int j = 0;j < rcols[0];j++){
+         img1.at<int>(i,j)=pstData2[k];k++;
+                                         }
+                                         }
+        imshow(pstData[0], img1); //display the image which is stored in the 'img' in the "MyWindow" window         
+        waitKey(0); //wait infinite time for a keypress
+        }
+       
+      return 0;
+}
+/* ==================================================================== */
+}

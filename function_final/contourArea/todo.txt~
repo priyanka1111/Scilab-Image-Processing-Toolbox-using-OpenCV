@@ -1,0 +1,9 @@
+d=[0,0,10,0,10,10,5,4];
+ 
+d is the points which we have to pass 
+code will convert d into 2D vector of points
+
+e=contourarea(d,"True");
+
+
+

@@ -1,0 +1,8 @@
+1)a=pointpolygontest(d,-1,-1,"True")
+
+a is the returned from function
+
+d is the 2D points
+
+last parameter is boolean value
+
