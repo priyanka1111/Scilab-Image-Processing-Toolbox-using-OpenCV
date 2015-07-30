@@ -1,6 +1,0 @@
-1)histogram equlaization is for gray scale image
-2)c=histeq(b);
-
-b is input matrix and it is for gray scale image
-
-c is output matrix returned
