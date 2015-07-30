@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab"   xml:id="borderInterpolate" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>borderInterpolate</refname>
+
+		<refpurpose>Computes the source location of an extrapolated pixel.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>return_int=borderInterpolate(int p,int len,String borderType);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+
+		<title>Parameters</title>
+
+		<variablelist>                                                                            
+			<varlistentry><term>return_int:</term>
+				<listitem><para>source location of an extrapolated pixel.</para></listitem></varlistentry>      
+                        <varlistentry><term>p</term>        
+				<listitem><para> 0-based coordinate of the extrapolated pixel along one of the axes, likely >= len  .</para></listitem></varlistentry>  
+                        <varlistentry><term>len</term>        
+				<listitem><para>Length of the array along the corresponding axis.</para></listitem></varlistentry>  
+                        <varlistentry><term>borderType</term>        
+				<listitem><para>Border type, one of the BORDER_* , except for BORDER_TRANSPARENT and BORDER_ISOLATED . When borderType==BORDER_CONSTANT , the function always returns -1, regardless of p and len .</para></listitem></varlistentry>  
+                       
+                                                                 
+		</variablelist>
+
+	</refsection>
+
+
+
+	<refsection>
+		<title>Description</title>
+
+		<para> Computes the source location of an extrapolated pixel.</para>
+	
+		<para>The function computes and returns the coordinate of a donor pixel corresponding to the specified extrapolated pixel when using the specified extrapolation border mode. </para>
+		
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+                <programlisting role="example">b =borderInterpolate(100, img.rows, BORDER_REFLECT_101);</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Priyanka Hiranandani</member>
+		</simplelist>
+	</refsection>
+</refentry>
+

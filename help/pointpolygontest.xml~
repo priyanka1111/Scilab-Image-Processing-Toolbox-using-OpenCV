@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab"   xml:id="pointpolygontest" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>pointpolygontest</refname>
+
+		<refpurpose>Performs a point-in-contour test.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis> return_double=pointpolygontest(InputArray contour, Point2f pt, bool measureDist);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+
+		<title>Parameters</title>
+
+		<variablelist>                                                                            
+			<varlistentry><term>return_double:</term>
+				<listitem><para>sign this return value will determine whether point is inside,outside or on edge</para></listitem></varlistentry>      
+                        <varlistentry><term>contour</term>        
+				<listitem><para>Input contour is matrix containing x and y coordinates of all points.</para></listitem></varlistentry>  
+                        <varlistentry><term>pt</term>        
+				<listitem><para>Point tested against the contour.</para></listitem></varlistentry>  
+                        <varlistentry><term>measureDist</term>        
+				<listitem><para> If true, the function estimates the signed distance from the point to the nearest contour edge. Otherwise, the function only checks if the point is inside a contour or not.</para></listitem></varlistentry>  
+                        
+                        
+                                                                 
+		</variablelist>
+
+	</refsection>
+
+
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Performs a point-in-contour test.</para>
+	
+		<para>The function determines whether the point is inside a contour, outside, or lies on an edge (or coincides with a vertex). It returns positive (inside), negative (outside), or zero (on an edge) value, correspondingly. .</para>
+
+		<para>It is expected that the user input should be matrix containing a and y coordinates of all points and the function will return double value whose sign will determine whether image in inside or outside contour.When measureDist=false , the return value is +1, -1, and 0, respectively. Otherwise, the return value is a signed distance between the point and the nearest contour edge.
+		</para>
+		
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+                <programlisting role="example">d=[0,0,10,0,10,10,5,4,2,2,5,4];&#10;[a,b,c,e,f]=fitellipse(d);</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Priyanka Hiranandani</member>
+		</simplelist>
+	</refsection>
+</refentry>
+

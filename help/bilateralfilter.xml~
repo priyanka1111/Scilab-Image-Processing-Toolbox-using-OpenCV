@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab"   xml:id="bilateralfilter" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>bilateralfilter</refname>
+
+		<refpurpose>Applies the bilateral filter to an image.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>return_image=bilateralFilter(InputArray src, int d, double sigmaColor, double sigmaSpace ) </synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+
+		<title>Parameters</title>
+
+		<variablelist>                                                                            
+			    
+                        <varlistentry><term>src:</term>        
+				<listitem><para>list of pixels of input image.Source 8-bit or floating-point, 1-channel or 3-channel image.</para></listitem></varlistentry>
+                        <varlistentry><term>return_image:</term>
+				<listitem><para>list of pixels of output image returned by function which has same size and the same type as src.</para></listitem></varlistentry>    
+                        <varlistentry><term>d:</term>        
+				<listitem><para> Diameter of each pixel neighborhood that is used during filtering. If it is non-positive, it is computed from sigmaSpace.</para></listitem></varlistentry>          
+                        <varlistentry><term>sigmaColor:</term>        
+				<listitem><para> Filter sigma in the color space. A larger value of the parameter means that farther colors within the pixel neighborhood will be mixed together, resulting in larger areas of semi-equal color.</para></listitem></varlistentry>             
+                        <varlistentry><term>sigmaSpace:</term>        
+				<listitem><para>Filter sigma in the coordinate space. A larger value of the parameter means that farther pixels will influence each other as long as their colors are close enough (see sigmaColor ). When d>0 , it specifies the neighborhood size regardless of sigmaSpace . Otherwise, d is proportional to sigmaSpace .</para></listitem></varlistentry>     
+                                                                          
+		</variablelist>
+	</refsection>
+
+
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Applies the bilateral filter to an image.</para>
+	
+		<para>The function applies bilateral filtering to the input image.BilateralFilter can reduce unwanted noise very well while keeping edges fairly sharp. However, it is very slow compared to most filters.</para>
+
+	        <para>Sigma values: For simplicity, you can set the 2 sigma values to be the same. If they are small (< 10), the filter will not have much effect, whereas if they are large (> 150), they will have a very strong effect, making the image look “cartoonish”.
+
+Filter size: Large filters (d > 5) are very slow, so it is recommended to use d=5 for real-time applications, and perhaps d=9 for offline applications that need heavy noise filtering.</para>
+		
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+                <programlisting role="example">dst=bilateralfilter(source,-2, 12, 2 )</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Priyanka Hiranandani</member>
+		</simplelist>
+	</refsection>
+</refentry>
+
