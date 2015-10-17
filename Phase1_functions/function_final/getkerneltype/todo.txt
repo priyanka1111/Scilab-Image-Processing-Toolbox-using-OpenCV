@@ -1,0 +1,6 @@
+/* Author :Priyanka Hiranandani NIT Surat*/
+i=getkerneltype(s,-1,-1);
+
+s is one dimensional matrix
+
+-1,-1 are points

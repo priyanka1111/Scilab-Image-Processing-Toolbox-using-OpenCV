@@ -1,0 +1,3 @@
+1)calculate mean of all channels 
+2)b=mean1(a);
+3)where a is image list

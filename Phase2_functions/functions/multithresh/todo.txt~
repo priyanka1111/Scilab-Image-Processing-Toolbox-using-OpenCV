@@ -1,0 +1,16 @@
+1)syntax 
+
+b=multithresh(a,n);
+
+
+example
+
+a=imread("/home/priyanka/big.jpg","CV_LOAD_IMAGE_UNCHANGED");
+ 
+-->b=multithresh(a,2);
+ 
+-->b
+ b  =
+ 
+    101.    181.  
+ 

@@ -1,0 +1,4 @@
+b=approxpolyDP(a,2,"True")
+a is matrix of point
+2 Parameter specifying the approximation accuracy. 
+it is True (t is capital) If true, the approximated curve is closed (its first and last vertices are connected). Otherwise, it is not closed.

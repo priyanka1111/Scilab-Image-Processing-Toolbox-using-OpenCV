@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab"   xml:id="fitellipse" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>fitellipse</refname>
+
+		<refpurpose>Fits an ellipse around a set of 2D points.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis> [a,b,c,e,f]=fitellipse(points);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+
+		<title>Parameters</title>
+
+		<variablelist>                                                                            
+			<varlistentry><term>points:</term>
+				<listitem><para>matrix containing x and y coordinates of all points.</para></listitem></varlistentry>      
+                        <varlistentry><term>a</term>        
+				<listitem><para>Width of rotated rectangle returned by the function.</para></listitem></varlistentry>  
+                        <varlistentry><term>b</term>        
+				<listitem><para>Height of rotated rectangle returned by the function.</para></listitem></varlistentry>  
+                        <varlistentry><term>c</term>        
+				<listitem><para>x coordinate of center of rotated rectangle returned by function.</para></listitem></varlistentry>  
+                        <varlistentry><term>d</term>        
+				<listitem><para>The rotation angle in a clockwise direction .</para></listitem></varlistentry>  
+                        <varlistentry><term>e</term>        
+				<listitem><para>.</para></listitem></varlistentry>  
+                                                                 
+		</variablelist>
+
+	</refsection>
+
+
+
+	<refsection>
+		<title>Description</title>
+
+		<para> Fits an ellipse around a set of 2D points.</para>
+	
+		<para>The function calculates the ellipse that fits (in a least-squares sense) a set of 2D points best of all. It returns the rotated rectangle in which the ellipse is inscribed.</para>
+
+		<para>It is expected that the user input should be matrix containing a and y coordinates of all points and the function will return dimensions of rotated rectangle in which ellipse is inscribed .
+		</para>
+		
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+                <programlisting role="example">d=[0,0,10,0,10,10,5,4,2,2,5,4];&#10;[a,b,c,e,f]=fitellipse(d);</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Priyanka Hiranandani</member>
+		</simplelist>
+	</refsection>
+</refentry>
+

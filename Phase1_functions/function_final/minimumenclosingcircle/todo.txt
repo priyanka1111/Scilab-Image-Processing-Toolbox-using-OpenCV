@@ -1,0 +1,5 @@
+[r,t,y]=minenclosingcircle(d);
+
+r is x coordinate of center 
+t is y coordinate of center
+y is radius

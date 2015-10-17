@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab"   xml:id="minAreaRect" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>minAreaRect</refname>
+
+		<refpurpose></refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>return_image=boxfilter(InputArray src, int ddepth,int size.x,int size,y,int point.x,int point.y,String boolnormalize)</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+
+		<title>Parameters</title>
+
+		<variablelist>                                                                            
+			<varlistentry><term>return_image:</term>
+				<listitem><para>list of pixels of output image returned by function.</para></listitem></varlistentry>      
+                        <varlistentry><term>src</term>        
+				<listitem><para>list of pixels of input image.</para></listitem></varlistentry>  
+                        <varlistentry><term>ddepth</term>        
+				<listitem><para> the output image depth (-1 to use src.depth()).</para></listitem></varlistentry>  
+                        <varlistentry><term>x coordinate of  blurring kernel size.</term>        
+				<listitem><para></para></listitem></varlistentry>  
+                        <varlistentry><term>size.y</term>        
+				<listitem><para>y coordinate of  blurring kernel size.</para></listitem></varlistentry>  
+                        <varlistentry><term>point.x</term>        
+				<listitem><para>x coordinate of anchor point; default value Point(-1,-1) means that the anchor is at the kernel center.</para></listitem></varlistentry> 
+                       <varlistentry><term>point.y</term>        
+				<listitem><para>y coordinate of anchor point; default value Point(-1,-1) means that the anchor is at the kernel center.</para></listitem></varlistentry>
+                       <varlistentry><term>boolnormalize</term>        
+				<listitem><para> flag, specifying whether the kernel is normalized by its area or not.It should be passes as sring either as "True" or "False"</para></listitem></varlistentry> 
+                                                                 
+		</variablelist>
+
+	</refsection>
+
+
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Blurs an image using the box filter.</para>
+	
+		<para>Unnormalized box filter is useful for computing various integral characteristics over each pixel neighborhood, such as covariance matrices of image derivatives (used in dense optical flow algorithms, and so on).</para>
+
+		
+		
+		
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+                <programlisting role="example">d=[0,0,10,0,10,10,5,4,2,2,5,4];&#10;[a,b,c,e,f]=fitellipse(d);</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Priyanka Hiranandani</member>
+		</simplelist>
+	</refsection>
+</refentry>
+

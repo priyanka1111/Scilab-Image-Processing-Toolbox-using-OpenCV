@@ -1,0 +1,17 @@
+1)Command to execute function
+exec ifft2.sce
+
+2)Syntax 
+
+a=[1,2,3;4,5,6;7,8,9];
+
+b=fft2_ip(a,0,3,3);
+
+b will contain fft2 of a 
+
+3,3 specifes size of a and b
+
+0 indicates that a is matrix 1 in place of 0 will indicate that a is list.
+
+
+

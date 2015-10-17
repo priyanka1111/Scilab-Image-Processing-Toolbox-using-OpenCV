@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab"   xml:id="adaptivebilateralfilter" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>adaptivebilateralfilter</refname>
+
+		<refpurpose>Applies the adaptive bilateral filter to an image.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis> return_image=adaptivebilateralfilter(InputArray src,int size_height,int size_width, double sigmaSpace,int point_x,int point_y)      </synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+
+		<title>Parameters</title>
+
+		<variablelist>                                                                            
+			    
+                        <varlistentry><term>src:</term>        
+				<listitem><para>list of pixels of input image.</para></listitem></varlistentry>
+                        <varlistentry><term>return_image:</term>
+				<listitem><para>list of pixels of output image returned by function which has same size and the same type as src.</para></listitem></varlistentry>    
+                        <varlistentry><term>size_height:</term>        
+				<listitem><para>Height of kernel size.This is the neighborhood where the local variance will be calculated, and where pixels will contribute (in a weighted manner).</para></listitem></varlistentry>          
+                        <varlistentry><term>size_width:</term>        
+				<listitem><para>Width of kernel size..</para></listitem></varlistentry>             
+                        <varlistentry><term>sigmaSpace:</term>        
+				<listitem><para>Filter sigma in the coordinate space. Larger value of the parameter means that farther pixels will influence each other (as long as their colors are close enough; see sigmaColor). Then d>0, it specifies the neighborhood size regardless of sigmaSpace, otherwise d is proportional to sigmaSpace.</para></listitem></varlistentry>     
+                        <varlistentry><term>point_x:</term>        
+				<listitem><para>x coordinate of point given to function.</para></listitem></varlistentry>                           
+                        <varlistentry><term>point_y:</term>        
+				<listitem><para>y coodinate of point given to function.</para></listitem></varlistentry>                                                   
+		</variablelist>
+	</refsection>
+
+
+
+	<refsection>
+		<title>Description</title>
+
+		<para>Applies the adaptive bilateral filter to an image.</para>
+	
+		<para>A main part of our strategy will be to load each raw pixel once, and reuse it to calculate all pixels in the output (filtered) image that need this pixel value. The math of the filter is that of the usual bilateral filter, except that the sigma color is calculated in the neighborhood, and clamped by the optional input value.</para>
+
+	        	
+		
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+                <programlisting role="example">dst=adaptivebilateralfilter(scr,7,7,2,-1, -1);</programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Priyanka Hiranandani</member>
+		</simplelist>
+	</refsection>
+</refentry>
+
