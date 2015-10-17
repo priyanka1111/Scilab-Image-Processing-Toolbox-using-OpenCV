@@ -1,4 +1,0 @@
-a=arclenght(curve,closed);
-
-1)curve is vector 2D points
-2)closed is boolean it should be passed as string as "True" or "False"

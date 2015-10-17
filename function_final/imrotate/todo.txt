@@ -1,4 +1,0 @@
-//Priyanka Hiranandani
-b=imrotate(a,20);
-a is the source image
-20 is angle by which we have to rotate our image

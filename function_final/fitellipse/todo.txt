@@ -1,6 +1,0 @@
-
-d=[0,0,10,0,10,10,5,4,2,2,5,4];
-(at least this many of points should be there ) 
-1)[a,b,c,e,f]=fitellipse(d);
-
-a,b,c,d,e are parameters of rotated rect returned
