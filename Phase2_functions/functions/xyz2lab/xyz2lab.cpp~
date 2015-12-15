@@ -65,9 +65,9 @@ extern "C"
  
     int xyz2lab(char *fname, unsigned long fname_len)
     {
-        // Error management variable
+   // Error management variable
         SciErr sciErr;
-        //variable info
+    //variable info
 	int iRows=0;
 	int iCols=0;
         int piRows=0;

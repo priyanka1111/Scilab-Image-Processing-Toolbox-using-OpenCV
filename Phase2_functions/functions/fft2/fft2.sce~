@@ -13,5 +13,5 @@ function[x] = fft2_ip(A, y, m, n)
             end  
               B=resize_matrix(B,m,n);      
               x(:,:,i)=fft(B);
-         end
+            end
 endfunction
